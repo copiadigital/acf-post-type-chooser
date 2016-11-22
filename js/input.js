@@ -1,15 +1,10 @@
 (function($){
 	function initialize_field( $el ) {
-
-        $('.field_type-post-type-chooser .select2-container-disabled').remove();
-        
-		//$el.doStuff();
-		
 	}
-	
-	
+
+
 	if( typeof acf.add_action !== 'undefined' ) {
-	
+
 		/*
 		*  ready append (ACF5)
 		*
@@ -23,28 +18,29 @@
 		*  @param	$el (jQuery selection) the jQuery element which contains the ACF fields
 		*  @return	n/a
 		*/
-		
-		acf.add_action('ready append', function( $el ){
 
-            $('select.js-post-types-select2').select2();
-            
+		acf.add_action('ready append', function( $el ){
 			// search $el for fields of type 'post-type-chooser'
-			acf.get_fields({ type : 'post-type-chooser'}, $el).each(function(){
-				
+			acf.get_fields({ type : 'post_type_chooser'}, $el).each(function(){
+
 				initialize_field( $(this) );
-				
+
 			});
-			
+
 		});
-		
-		
+
+		acf.fields.post_type_chooser = acf.fields.select.extend({
+			type: 'post_type_chooser',
+		});
+
+
 	} else {
-		
-		
+
+
 		/*
 		*  acf/setup_fields (ACF4)
 		*
-		*  This event is triggered when ACF adds any new elements to the DOM. 
+		*  This event is triggered when ACF adds any new elements to the DOM.
 		*
 		*  @type	function
 		*  @since	1.0.0
@@ -55,18 +51,18 @@
 		*
 		*  @return	n/a
 		*/
-		
+
 		$(document).live('acf/setup_fields', function(e, postbox){
-			
-			$(postbox).find('.field[data-field_type="post-type-chooser"]').each(function(){
-				
+
+			$(postbox).find('.field[data-field_type="post_type_chooser"]').each(function(){
+
 				initialize_field( $(this) );
-				
+
 			});
-		
+
 		});
-	
-	
+
+
 	}
 
 
