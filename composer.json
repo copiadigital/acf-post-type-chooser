@@ -1,0 +1,16 @@
+{
+  "name": "reyhoun/acf-post-type-chooser",
+  "description": "Display all Post Types",
+  "version": "1.1.0",
+  "license": "GPL2+",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "acf",
+    "advanced custom fields"
+  ],
+  "homepage": "https://acfwidgets.com/",
+  "authors": [],
+  "support": {
+    "issues": "https://acfwidgets.com/support/"
+  }
+}
